@@ -19,17 +19,6 @@ app.get("/",(req,res)=>{
     res.render("index");    
 })
 
-// app.get("/sendingdata", async(req,res)=>{
-
-// try {
-//     const response = await axios.get(apiUrl);
-//     const data = response.data;
-//     const content = JSON.stringify(data);
-// } catch (error) {
-//     console.log(error);
-// }
-// })
-
 app.post("/submit-form",async(req,res)=>{
     
     try {
@@ -38,27 +27,28 @@ app.post("/submit-form",async(req,res)=>{
        const amount = req.body.amount;
 
        const response = await axios.get(`${apiUrl}/pair/${from}/${to}/${amount}`);
-       const data = response.data.conversion_result;
-       const singleRate = response.data.conversion_rate;
-       const baseCode = response.data.base_code;
-       const targetCode = response.data.target_code;
-       console.log(response.data);
+    //    const data = response.data.conversion_result;
+    //    const singleRate = response.data.conversion_rate;
+    //    const baseCode = response.data.base_code;
+    //    const targetCode = response.data.target_code;
        
+        // console.log(response.data);
+            
 
-       let flag1 = from.slice(0,2);
-       let flag2 = to.slice(0,2);
+       const totalData = {
+        data : response.data.conversion_result,
+        singleRate : response.data.conversion_rate,
+        baseCode : response.data.base_code,
+        targetCode : response.data.target_code,
+        flag1 : from.slice(0,2),
+        flag2 : to.slice(0,2),
+       }
+
+    //    console.log(totalData.singleRate);
        
        
-       
-    //    console.log(data);
-        
-       const convertedAmount = JSON.stringify(data);
-    //    console.log(convertedAmount);
-       
-       res.render("index",{convertedAmount,flag1,flag2,singleRate,baseCode,targetCode})
-       
-    
-        
+       res.render("index",{totalData});
+           
     } catch (error) {
         console.log(error);
     }
