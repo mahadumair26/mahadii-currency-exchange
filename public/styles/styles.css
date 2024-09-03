@@ -1,0 +1,93 @@
+h1 {
+    text-align: center;
+    /* color:black */
+}
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index:-1;
+  }
+body{
+    background-repeat: no-repeat;
+    color: white;
+}
+.flex-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-container {
+    height: 720px;
+    width: 800px;
+    border: 19px solid #0000;
+    border-radius: 30px;
+    background: linear-gradient(#131219, #131219) padding-box, linear-gradient(var(--angle),
+            #070707,
+            #687aff) border-box;
+    animation: 3s rotate linear infinite;
+    /* background-color: black; */
+
+}
+@keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+  
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+form {
+    height: 100%;
+    width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    color: white;
+    height: 100%;
+    width: 100%;
+    
+    /* border: 2px solid black; */
+    grid-template-rows: 1fr 1fr;
+}
+
+#countries h2 {
+    text-align: center;
+}
+
+button {
+    margin-top: 20px;
+}
+
+data {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.flag {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#toCountries h2 {
+    text-align: center;
+}
+
+#countries,
+#toCountries {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Exchange</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+  <body>
+    <video autoplay muted loop>
+      <source src="https://videos.pexels.com/video-files/6128197/6128197-uhd_1920_1440_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="flex-container"> 
+      <div class="inner-container">
+        <form action="/submit-form" method="post">
+          <h1>Currency Exchange</h1>
+          <div class="grid-container">
+              <!-- Wrap both dropdowns in the same form -->
+              <div id="countries">
+              <h2>From</h2>
+              <label for="countries1">Country</label>
+              <select name="countries1" id="countries1" class="form-select" aria-label="Default select example">
+                <option selected>Choose the country</option>
+                <option value="PKR">Pakistan</option>
+                <option value="USD">United States</option>
+                <option value="INR">India</option>
+                <option value="GBP">United Kingdom</option>
+                <option value="CAD">Canada</option>
+                <option value="AUD">Australia</option>
+                <option value="EUR">Germany</option>
+                <option value="JPY">Japan</option>
+                <option value="CNY">China</option>
+                <option value="BRL">Brazil</option>
+                <option value="ZAR">South Africa</option>
+                <option value="NGN">Nigeria</option>
+                <option value="RUB">Russia</option>
+                <option value="MXN">Mexico</option>
+                <option value="IDR">Indonesia</option>
+              </select><br>
+
+              <label for="amount">Amount</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">$</span>
+                </div>
+                <input type="text" name="amount" class="form-control" placeholder="Enter amount" aria-label="Username" aria-describedby="basic-addon3">
+              </div>
+              <div class="flag">
+                <% if(locals.flag1) {%>
+                  <img src="https://flagsapi.com/<%=locals.flag1%>/shiny/64.png">
+                  <% } %>
+              </div>
+              <!-- <input type="amount" placeholder="Enter amount" name="amount"><br> -->
+              </div>
+              <div id="toCountries">
+              <h2>To</h2>
+              <label for="countries2">Country</label>
+              <select name="countries2" id="countries2" class="form-select" aria-label="Default select example">
+                <option selected>Choose the country</option>
+                <option value="PKR">Pakistan</option>
+                <option value="USD">United States</option>
+                <option value="INR">India</option>
+                <option value="GBP">United Kingdom</option>
+                <option value="CAD">Canada</option>
+                <option value="AUD">Australia</option>
+                <option value="EUR">Germany</option>
+                <option value="JPY">Japan</option>
+                <option value="CNY">China</option>
+                <option value="BRL">Brazil</option>
+                <option value="ZAR">South Africa</option>
+                <option value="NGN">Nigeria</option>
+                <option value="RUB">Russia</option>
+                <option value="MXN">Mexico</option>
+                <option value="IDR">Indonesia</option>
+              </select>
+              <button type="submit" class="btn btn-primary">submit</button><br>
+              <% if(locals.baseCode){ %>
+              <data>1 <%=baseCode%> = <%=singleRate%> <%=targetCode %></data><br>
+              <% } %>
+              <data>Converted Rates = <%=locals.convertedAmount%></data>
+              <div class="flag">
+                <% if(locals.flag2) {%>
+                <img src="https://flagsapi.com/<%=locals.flag2%>/shiny/64.png">
+                <% } %>
+              </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/script/index.js"></script>
+    <!-- Ensure this script is present and correct -->
+  </body>
+</html>
